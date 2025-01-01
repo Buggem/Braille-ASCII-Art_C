@@ -1,12 +1,13 @@
-import { rgbaOffset } from "./helpers.js";
+#include "helpers.h"
+#include <stdint.h>
+//import { rgbaOffset } from "./helpers.js";
+typedef struct {
 
-export default class KernelDitherer implements Ditherer {
-
-	constructor(
-		public origin: [ number, number ],
-		public numerators: number[][],
-		public denominator: number = 1,
-	) { }
+	
+	
+	uint_32 origin[2] = [0,0];
+	uint_32** numerators;
+	public denominator: number = 1;
 
 	weights(): [ number, number, number ][] {
 
@@ -54,4 +55,4 @@ export default class KernelDitherer implements Ditherer {
 		return output;
 	}
 
-}
+} KernelDitherer;
